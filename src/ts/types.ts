@@ -1,3 +1,5 @@
+export type Data<T extends object> = T;
+
 export interface Ingredient {
   description: string;
   quantity: number;
@@ -15,17 +17,18 @@ export interface Recipe {
   ingredients: Ingredient[];
 }
 
-export interface StartedData {}
-
-export type Data<T extends object> = T;
-
-export interface AnyPosibleData {
+export interface SearchResultsFromAPI {
   id: string;
   title: string;
   publisher: string;
-  sourceUrl: string;
-  image: string;
-  servings: number;
-  cookingTime: number;
-  ingredients: Ingredient[];
+  image_url: string;
 }
+
+export interface SearchResults {
+  id: string;
+  title: string;
+  publisher: string;
+  image: string;
+}
+
+export type PosibleRenderData = Recipe | SearchResults[];

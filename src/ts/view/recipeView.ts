@@ -3,32 +3,11 @@ import { View } from './View';
 
 class RecipeView extends View {
   protected declare data: Data<Recipe>;
-  private parentElement = document.querySelector('.recipe') as HTMLElement;
+  parentElement = document.querySelector('.recipe') as HTMLElement;
+  errorMessage = `We cound not find that recipe. Please try another one!`;
+  message = '';
 
-  render(data: Recipe) {
-    this.data = data;
-
-    const markup = this.generateMarkup();
-    this.clear();
-    this.parentElement.insertAdjacentHTML('afterbegin', markup);
-  }
-
-  private clear() {
-    this.parentElement.innerHTML = '';
-  }
-
-  renderSpinner(): void {
-    const markup: string = `
-          <div class="spinner">
-            <svg>
-              <use href="src/img/icons.svg#icon-loader"></use>
-            </svg>
-          </div>
-  `;
-
-    this.clear();
-    this.parentElement.insertAdjacentHTML('afterbegin', markup);
-  }
+  declare render: (data: Recipe) => void;
 
   addHandlerRender(handler: Function): void {
     //FIXME: Check this function in function. Workds, but looks weird
@@ -36,7 +15,7 @@ class RecipeView extends View {
     window.addEventListener('load', () => handler());
   }
 
-  private generateMarkup(): string {
+  generateMarkup = () => {
     return `
         <figure class="recipe__fig">
           <img src="${this.data.image}" alt="${
@@ -81,9 +60,6 @@ class RecipeView extends View {
           </div>
 
           <div class="recipe__user-generated">
-            <svg>
-              <use href="src/img/icons.svg#icon-user"></use>
-            </svg>
           </div>
           <button class="btn--round">
             <svg class="">
@@ -145,7 +121,7 @@ class RecipeView extends View {
             </svg>
           </a>
         </div>`;
-  }
+  };
 }
 
 export default new RecipeView();
