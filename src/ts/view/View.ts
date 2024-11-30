@@ -1,4 +1,4 @@
-import { Data, PosibleRenderData } from '../types';
+import { Data, PosibleRenderData } from '../utils/types';
 
 export abstract class View {
   protected abstract data: Data<{}>;

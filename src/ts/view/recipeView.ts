@@ -1,4 +1,4 @@
-import { Data, Recipe } from '../types';
+import { Data, Recipe } from '../utils/types';
 import { View } from './View';
 
 class RecipeView extends View {

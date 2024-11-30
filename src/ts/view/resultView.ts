@@ -1,4 +1,4 @@
-import { Data, SearchResults } from '../types';
+import { Data, SearchResults } from '../utils/types';
 import { View } from './View';
 
 class ResultsView extends View {

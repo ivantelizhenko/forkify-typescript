@@ -1,11 +1,13 @@
 import * as model from './model.ts';
-import { Recipe } from './types.ts';
+import { Recipe } from './utils/types.ts';
 import recipeView from './view/recipeView.ts';
+
+import searchView from './view/searchView.ts';
+import resultView from './view/resultView.ts';
+import paginationView from './view/paginationView.ts';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import searchView from './view/searchView.ts';
-import resultView from './view/resultView.ts';
 
 ////////////////////////////////////////////////
 
@@ -38,14 +40,26 @@ async function controlSearchResults() {
     await model.loadSearchResults(query);
 
     // 3. Render results
-    resultView.render(model.state.search.results);
+    resultView.render(model.getSearchResultsPage());
+
+    // 4. Render initial pagination
+    paginationView.render(model.state.search);
   } catch (err) {
     console.log(err);
   }
 }
 
+function controlPagination(goToPage: number) {
+  // 1. Render new results
+  resultView.render(model.getSearchResultsPage(goToPage));
+
+  // 2. Render new initial pagination
+  paginationView.render(model.state.search);
+}
+
 const init = function () {
   recipeView.addHandlerRender(constrolRecipes);
   searchView.addHandlerSearch(controlSearchResults);
+  paginationView.addHandlerClick(controlPagination);
 };
 init();
