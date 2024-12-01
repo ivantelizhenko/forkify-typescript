@@ -1,11 +1,12 @@
 export interface State {
   recipe: Partial<Recipe>;
   search: SearchData;
+  bookmarks: RecipePreview[];
 }
 
 export interface SearchData {
   query: string;
-  results: SearchResults[];
+  results: RecipePreview[];
   page: number;
   resultsPerPage: number;
 }
@@ -21,6 +22,7 @@ export interface Recipe {
   servings: number;
   cookingTime: number;
   ingredients: Ingredient[];
+  bookmarked: boolean;
 }
 
 export interface Ingredient {
@@ -36,11 +38,11 @@ export interface SearchResultsFromAPI {
   image_url: string;
 }
 
-export interface SearchResults {
+export interface RecipePreview {
   id: string;
   title: string;
   publisher: string;
   image: string;
 }
 
-export type PosibleRenderData = Recipe | SearchResults[] | SearchData;
+export type PosibleRenderData = Recipe | RecipePreview[] | SearchData;
