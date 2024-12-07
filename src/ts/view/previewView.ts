@@ -12,7 +12,7 @@ export abstract class PreviewView extends View {
 
   generateMarkupPreview(result: RecipePreview) {
     const id = window.location.hash.slice(1);
-    console.log(result);
+
     return `
     <li class="preview">
       <a class="preview__link ${
