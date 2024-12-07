@@ -6,6 +6,10 @@ class BookmarksView extends PreviewView {
   ) as HTMLUListElement;
   errorMessage = 'No bookmarks yet. Find a nice recipe and bookmark it :)';
   message = '';
+
+  addHandlerRender(handler: () => void) {
+    window.addEventListener('load', handler);
+  }
 }
 
 export default new BookmarksView();

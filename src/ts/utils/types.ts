@@ -23,11 +23,24 @@ export interface Recipe {
   cookingTime: number;
   ingredients: Ingredient[];
   bookmarked: boolean;
+  key?: string;
+}
+
+export interface RecipeFromAPI {
+  id?: string;
+  title: string;
+  publisher: string;
+  source_url: string;
+  image_url: string;
+  servings: number;
+  cooking_time: number;
+  ingredients: Ingredient[];
+  key?: string;
 }
 
 export interface Ingredient {
   description: string;
-  quantity: number;
+  quantity: number | null;
   unit: string;
 }
 
@@ -36,6 +49,7 @@ export interface SearchResultsFromAPI {
   title: string;
   publisher: string;
   image_url: string;
+  key?: string;
 }
 
 export interface RecipePreview {
@@ -43,6 +57,12 @@ export interface RecipePreview {
   title: string;
   publisher: string;
   image: string;
+  key?: string;
+}
+
+export interface AddRecipe {
+  [k: string]: string;
 }
 
 export type PosibleRenderData = Recipe | RecipePreview[] | SearchData;
+export type PosibleForUpload = RecipeFromAPI;

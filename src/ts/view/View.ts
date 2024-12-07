@@ -46,7 +46,7 @@ export abstract class View {
     });
   }
 
-  private clear() {
+  protected clear() {
     this.parentElement.innerHTML = '';
   }
 
