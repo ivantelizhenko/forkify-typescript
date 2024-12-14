@@ -52,14 +52,17 @@ class PaginationView extends View {
     curPage: number = this.data.page
   ): string {
     const iconArrowLeft = `
-      <svg class="search__icon">
-        <use href="src/img/icons.svg#icon-arrow-left"></use>
+      <svg class="search__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
       </svg>
+
     `;
     const iconArrowRight = `
-      <svg class="search__icon">
-        <use href="src/img/icons.svg#icon-arrow-right"></use>
+     
+      <svg class="search__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
       </svg>
+
     `;
     const definePage = type === 'prev' ? curPage - 1 : curPage + 1;
 

@@ -1,4 +1,4 @@
-@use "base";
+@use 'base';
 
 .search-results {
   padding: 3rem 0;
@@ -16,7 +16,7 @@
   padding: 0 3.5rem;
 
   &::after {
-    content: "";
+    content: '';
     display: table;
     clear: both;
   }
