@@ -1,4 +1,4 @@
-@use "base";
+@use 'base';
 
 .recipe {
   background-color: base.$color-grey-light-1;
@@ -12,7 +12,7 @@
     transform-origin: top;
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       height: 100%;
       width: 100%;
@@ -86,7 +86,8 @@
   &__info-icon {
     height: 2.35rem;
     width: 2.35rem;
-    fill: base.$color-primary;
+    stroke: base.$color-primary;
+    fill: none;
     margin-right: 1.15rem;
   }
 
@@ -117,7 +118,8 @@
     svg {
       height: 2.25rem;
       width: 2.25rem;
-      fill: base.$color-primary;
+      stroke: base.$color-primary;
+      stroke-width: 2;
     }
   }
 
@@ -148,6 +150,7 @@
     height: 2rem;
     width: 2rem;
     fill: base.$color-primary;
+
     margin-right: 1.1rem;
     flex: 0 0 auto;
     margin-top: 0.1rem;

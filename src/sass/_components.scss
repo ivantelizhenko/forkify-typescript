@@ -1,4 +1,4 @@
-@use "base";
+@use 'base';
 
 %btn {
   background-image: base.$gradient;
@@ -115,9 +115,11 @@
   }
 
   svg {
+    color: #fff;
     height: 2.5rem;
     width: 2.5rem;
-    fill: #fff;
+
+    stroke-width: 2;
   }
 }
 
@@ -131,7 +133,8 @@
   svg {
     height: 100%;
     width: 100%;
-    fill: base.$color-primary;
+    stroke: base.$color-primary;
+    stroke-width: 2;
     transition: all 0.3s;
   }
 
@@ -140,7 +143,6 @@
   }
 
   &:hover svg {
-    fill: base.$color-grad-2;
     transform: translateY(-1px);
   }
 
